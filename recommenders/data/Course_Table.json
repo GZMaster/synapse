@@ -1,0 +1,27 @@
+[
+    {
+        "Id": 1,
+        "Course Name": "UI/UX Design",
+        "Spec Ind": 7
+    },
+    {
+        "Id": 2,
+        "Course Name": "Data science",
+        "Spec Ind": 8
+    },
+    {
+        "Id": 3,
+        "Course Name": "Frontend Development",
+        "Spec Ind": 6
+    },
+    {
+        "Id": 4,
+        "Course Name": "Backed Development",
+        "Spec Ind": 6
+    },
+    {
+        "Id": 5,
+        "Course Name": "Product Management",
+        "Spec Ind": 8
+    }
+]

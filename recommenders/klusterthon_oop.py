@@ -5,10 +5,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats import percentileofscore
 
 def rec(student_perf, course_tab, student_tab):
-
-    spt = pd.read_json(student_perf)
-    ct = pd.read_json(course_tab)
-    st = pd.read_json(student_tab)
+    spt = pd.DataFrame(student_perf)
+    ct = pd.DataFrame(course_tab)
+    st = pd.DataFrame(student_tab)
 
     st = st.drop(columns = ['first_name', 'last_name', 'email'])
     st.rename(columns={'id': 'Student_Id'}, inplace=True)
@@ -115,5 +114,4 @@ def rec(student_perf, course_tab, student_tab):
 
     print("Pairings saved to 'pairings.json'")
     return 
-
-rec()
+   
