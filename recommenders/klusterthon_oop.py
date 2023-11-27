@@ -1,5 +1,4 @@
 import pandas as pd
-import json
 from itertools import combinations
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats import percentileofscore

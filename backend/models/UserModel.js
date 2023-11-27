@@ -3,9 +3,14 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 // Create a new Mongoose schema for the user model
 const userSchema = new mongoose.Schema({
-  name: {
+  first_name: {
     type: String,
-    required: [true, "Please tell us your name!"],
+    required: [true, "Please tell us your first name!"],
+    trim: true,
+  },
+  last_name: {
+    type: String,
+    required: [true, "Please tell us your last name!"],
     trim: true,
   },
   email: {
@@ -14,6 +19,34 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     validate: [validator.isEmail, "Please provide a valid email address!"],
+  },
+  Gender: {
+    type: String,
+    required: [true, "Please tell us your gender!"],
+    enum: ["male", "female", "other"],
+    trim: true,
+  },
+  Age: {
+    type: Number,
+    required: [true, "Please tell us your age!"],
+    min: 10,
+  },
+  Country: {
+    type: String,
+    required: [true, "Please tell us your country!"],
+  },
+  IQ_Score: {
+    type: Number,
+    required: [true, "Please tell us your IQ score!"],
+    min: 0,
+  },
+  Course_Id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Course",
+  },
+  Cohort: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Cohort",
   },
   password: {
     type: String,
@@ -43,9 +76,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ["user", "admin"],
     default: "user",
-  },
-  phoneNumber: {
-    type: String,
   },
   passwordChangedAt: Date,
   passwordResetToken: String,
