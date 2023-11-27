@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "synapses",
-  description: "A Next.js 13 Meta synapses application",
+  description: "Synapses",
 };
 
 export default function RootLayout({
