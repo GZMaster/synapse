@@ -2,7 +2,7 @@ import pandas as pd
 from itertools import combinations
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats import percentileofscore
-import json
+
 
 def rec(student_perf, course_tab, student_tab):
     spt = pd.DataFrame(student_perf)
