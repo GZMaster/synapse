@@ -3,6 +3,7 @@ from itertools import combinations
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats import percentileofscore
 
+
 def rec(student_perf, course_tab, student_tab):
     spt = pd.DataFrame(student_perf)
     ct = pd.DataFrame(course_tab)
@@ -91,45 +92,48 @@ def rec(student_perf, course_tab, student_tab):
                 best_pairs[j] = {'pair': i, 'similarity': similarity}
 
         # Select the best pairs without repetition
-    paired_students = set()
-    for student, data in best_pairs.items():
-        if student not in paired_students and data['pair'] not in paired_students:
-            #pairs_with_details.append(((student, data['pair']), cohort, course_id))
-            paired_students.add(student)
-            paired_students.add(data['pair'])        
-                # Add pairing as dict to pairings_list
-            pairings_list.append({
-                "Cohort": cohort,
-                "Student1": student,
-                "Student2": data['pair']
-            })
+        paired_students = set()
+        for student, data in best_pairs.items():
+            if student not in paired_students and data['pair'] not in paired_students:
+                #pairs_with_details.append(((student, data['pair']), cohort, course_id))
+                paired_students.add(student)
+                paired_students.add(data['pair'])        
+                    # Add pairing as dict to pairings_list
+                pairings_list.append({
+                    "Cohort": cohort,
+                    "Student1": student,
+                    "Student2": data['pair']
+                })
 
-    # Convert the list of dictionaries to a JSON string
-    #pairings_json = json.dumps(pairings_list, indent=4)  # 'indent' for pretty-printing
+    # #Convert the list of dictionaries to a JSON string
+    # pairings_json = json.dumps(pairings_list, indent=4)  # 'indent' for pretty-printing
 
-    # Write the JSON string to a file
-    #with open('pairings.json', 'w') as json_file:
-        #json_file.write(pairings_json)
+    #  #Write the JSON string to a file
+    # with open('pairings.json', 'w') as json_file:
+    #     json_file.write(pairings_json)
 
-    #print("Pairings saved to 'pairings.json'")
+    # print("Pairings saved to 'pairings.json'")
     return pairings_list                                                                                                                      
 
 # file_path = "recommenders/data/Student_Performance_Table.json"
 
-# # Open the file and then load the JSON data
+# # # Open the file and then load the JSON data
 # with open(file_path, "r") as file:
-#     a = json.load(file)
+#      a = json.load(file)
 
 # file_path = "recommenders/data\Course_Table.json"
 
-# # Open the file and then load the JSON data
+# # # Open the file and then load the JSON data
 # with open(file_path, "r") as file:
-#     b = json.load(file)
+#      b = json.load(file)
 
 # file_path = "recommenders/data\Student_Table.json"
 
-# # Open the file and then load the JSON data
+# # # Open the file and then load the JSON data
 # with open(file_path, "r") as file:
 #     c = json.load(file)
 
-# print(a)
+
+# rec(a, b, c)
+
+# #print(a)
