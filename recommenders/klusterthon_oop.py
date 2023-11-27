@@ -106,12 +106,31 @@ def rec(student_perf, course_tab, student_tab):
             })
 
     # Convert the list of dictionaries to a JSON string
-    pairings_json = json.dumps(pairings_list, indent=4)  # 'indent' for pretty-printing
+    #pairings_json = json.dumps(pairings_list, indent=4)  # 'indent' for pretty-printing
 
     # Write the JSON string to a file
-    with open('pairings.json', 'w') as json_file:
-        json_file.write(pairings_json)
+    #with open('pairings.json', 'w') as json_file:
+        #json_file.write(pairings_json)
 
-    print("Pairings saved to 'pairings.json'")
-    return 
-   
+    #print("Pairings saved to 'pairings.json'")
+    return pairings_list                                                                                                                      
+
+# file_path = "recommenders/data/Student_Performance_Table.json"
+
+# # Open the file and then load the JSON data
+# with open(file_path, "r") as file:
+#     a = json.load(file)
+
+# file_path = "recommenders/data\Course_Table.json"
+
+# # Open the file and then load the JSON data
+# with open(file_path, "r") as file:
+#     b = json.load(file)
+
+# file_path = "recommenders/data\Student_Table.json"
+
+# # Open the file and then load the JSON data
+# with open(file_path, "r") as file:
+#     c = json.load(file)
+
+# print(a)
