@@ -18,6 +18,8 @@ Establish a feedback mechanism within the application. Learners will provide fee
 ## Data
 The necessary data for building the model can be accessed [here](link-to-data). Please refer to the documentation within the repository for details on data usage, formatting, and any preprocessing steps required.
 
+## Link to Recommender Algorithm Api: https://synapse-ml.onrender.com
+
 ## Getting Started
 
 1. **Installation:** Clone the repository to your local environment.
