@@ -17,6 +17,18 @@ services:
 
   redis:
     image: "redis:alpine"
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf  # Mount the config file
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]  # Specify the config file path in the command
+    networks:
+      - fastapi-network
+
+  node-express:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile  # Replace this with your Node.js Dockerfile path
+    ports:
+      - "3000:3000"  # Adjust the ports as needed for your Node.js app
     networks:
       - fastapi-network
 
