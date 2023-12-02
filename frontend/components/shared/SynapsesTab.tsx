@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 import { fetchCommunityPosts } from "@/lib/actions/community.actions";
 import { fetchUserPosts } from "@/lib/actions/user.actions";
@@ -48,7 +48,7 @@ async function SynapsesTab({ currentUserId, accountId, accountType }: Props) {
   }
 
   if (!result) {
-    redirect("/");
+    // redirect("/");
   }
 
   return (

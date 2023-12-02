@@ -1,18 +1,18 @@
 import Image from "next/image";
-import { currentUser } from "@clerk/nextjs";
+// import { currentUser } from "@clerk/nextjs";
 
 import { communityTabs } from "@/constants";
 
 import UserCard from "@/components/cards/UserCard";
-import synapsesTab from "@/components/shared/synapsesTab";
+// import synapsesTab from "@/components/shared/synapsesTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { fetchCommunityDetails } from "@/lib/actions/community.actions";
 
 async function Page({ params }: { params: { id: string } }) {
-  const user = await currentUser();
-  if (!user) return null;
+  // const user = await currentUser();
+  // if (!user) return null;
 
   const communityDetails = await fetchCommunityDetails(params.id);
 
@@ -20,7 +20,7 @@ async function Page({ params }: { params: { id: string } }) {
     <section>
       <ProfileHeader
         accountId={communityDetails.createdBy.id}
-        authUserId={user.id}
+        authUserId=""
         name={communityDetails.name}
         username={communityDetails.username}
         imgUrl={communityDetails.image}
@@ -54,7 +54,7 @@ async function Page({ params }: { params: { id: string } }) {
           <TabsContent value='synapses' className='w-full text-light-1'>
             {/* @ts-ignore */}
             <synapsesTab
-              currentUserId={user.id}
+              // currentUserId={user.id}
               accountId={communityDetails._id}
               accountType='Community'
             />
@@ -77,11 +77,11 @@ async function Page({ params }: { params: { id: string } }) {
 
           <TabsContent value='requests' className='w-full text-light-1'>
             {/* @ts-ignore */}
-            <synapsesTab
+            {/* <synapsesTab
               currentUserId={user.id}
               accountId={communityDetails._id}
               accountType='Community'
-            />
+            /> */}
           </TabsContent>
         </Tabs>
       </div>
